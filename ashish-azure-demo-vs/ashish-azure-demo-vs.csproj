@@ -5,6 +5,12 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>ashish_azure_demo_vs</RootNamespace>
+    <ApplicationInsightsResourceId>/subscriptions/695e14b4-c3e0-479d-9aeb-d0f814c4fe68/resourceGroups/ashishazuredemo/providers/microsoft.insights/components/ash-azure-demo-vs</ApplicationInsightsResourceId>
+    <UserSecretsId>86afb6ec-c271-4b68-8c36-ea046607988d</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.21.0" />
+  </ItemGroup>
 
 </Project>
