@@ -1,18 +1,20 @@
 ﻿using Microsoft.Azure.Cosmos;
 using System.Collections.Concurrent;
 using System.ComponentModel;
+using System.Configuration;
 using Container = Microsoft.Azure.Cosmos.Container;
 
 namespace ashish_azure_demo_vs.Data
 {
     public class EngineerService: IEngineerService
     {
-        private readonly string CosmosDbConnectionString = "AccountEndpoint=https://ashish-cosmos-db.documents.azure.com:443/;AccountKey=mnxuHkvh9ni9UDXqfw34sV8TYIUFqNVSTuHHLQQi1sMpF1Idt64kvXB5JAxsT9w0lAxrrcklcjIrACDbApqQhg==;";
         private readonly string CosmosDbName = "Contractors";
         private readonly string CosmosDbContainerName = "Engineers";
+        public IConfiguration Configuration { get; private set; }
 
         private Container GetContainerClient()
         {
+            var CosmosDbConnectionString = Configuration.GetConnectionString("CosmosDbConnectionString");
             var cosmosDbClient = new CosmosClient(CosmosDbConnectionString);
             var container = cosmosDbClient.GetContainer(CosmosDbName, CosmosDbContainerName);
             return container;
