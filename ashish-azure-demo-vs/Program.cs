@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("AzureSqlConnection");
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddScoped<IEngineerService, EngineerService>();
 
 // Add services to the container.
 builder.Services.AddRazorPages();

@@ -1,0 +1,39 @@
+﻿@page
+@model ashish_azure_demo_vs.Pages.Cosmos.EngineersModel
+@{
+}
+
+<a href=@($"Upsert") class="btn btn-primary"><span class="oi oi-plus" /> Add Engineer </a>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="thead-light">
+            <tr>
+                <th>Name </th>
+                <th>Country </th>
+                <th>Specialty </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var eng in Model.engineers)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => eng.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => eng.Country)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => eng.Specialty)
+                    </td>
+                    <td>
+                        <a asp-page="./Upsert" asp-route-id="@eng.id">Edit</a> |
+                        <button class="btn btn-danger" onclick ="async () => await DeleteEngineer(eng.id)"><span class="oi oi-trash" /></button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
