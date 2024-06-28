@@ -5,6 +5,10 @@ VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ashish-azure-demo-vs", "ashish-azure-demo-vs\ashish-azure-demo-vs.csproj", "{58F5D6D6-63FE-4678-B43F-74FC1449AD4F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ashish-storageacc-demo", "ashish-storageacc-demo\ashish-storageacc-demo.csproj", "{143E90C5-EAC1-4732-A91F-424B7B9CA903}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.QueueConsumer.Demo", "Console.QueueConsumer.Demo\Console.QueueConsumer.Demo.csproj", "{66C34115-B009-4C20-9FBD-F84938341538}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{58F5D6D6-63FE-4678-B43F-74FC1449AD4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58F5D6D6-63FE-4678-B43F-74FC1449AD4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58F5D6D6-63FE-4678-B43F-74FC1449AD4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{143E90C5-EAC1-4732-A91F-424B7B9CA903}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{143E90C5-EAC1-4732-A91F-424B7B9CA903}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{143E90C5-EAC1-4732-A91F-424B7B9CA903}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{143E90C5-EAC1-4732-A91F-424B7B9CA903}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66C34115-B009-4C20-9FBD-F84938341538}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66C34115-B009-4C20-9FBD-F84938341538}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66C34115-B009-4C20-9FBD-F84938341538}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66C34115-B009-4C20-9FBD-F84938341538}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
