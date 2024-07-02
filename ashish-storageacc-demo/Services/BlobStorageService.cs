@@ -7,17 +7,19 @@ namespace ashish_storageacc_demo.Services
     public class BlobStorageService: IBlobStorageService
     {
         private readonly IConfiguration _configuration;
+        private readonly BlobServiceClient _blobServiceClient;
         private string containerName = "attendeeimages";
 
-        public BlobStorageService(IConfiguration configuration)
+        public BlobStorageService(IConfiguration configuration, BlobServiceClient blobServiceClient)
         {
             this._configuration = configuration;
+            _blobServiceClient = blobServiceClient; 
         }
 
         public async Task<string> UploadBlob(IFormFile formFile, string imageName, string? originalBlobName = null)
         {
             var blobName = $"{imageName}{Path.GetExtension(formFile.FileName)}";
-            var container = await GetBlobContainerClient();
+            var container = _blobServiceClient.GetBlobContainerClient(containerName); ;
 
             if (!string.IsNullOrEmpty(originalBlobName))
             {
@@ -34,7 +36,7 @@ namespace ashish_storageacc_demo.Services
 
         public async Task<string> GetBlobUrl(string imageName)
         {
-            var container = await GetBlobContainerClient();
+            var container = _blobServiceClient.GetBlobContainerClient(containerName); ;
 
             var blob = container.GetBlobClient(imageName);
 
@@ -53,7 +55,7 @@ namespace ashish_storageacc_demo.Services
 
         public async Task RemoveBlob(string imageName)
         {
-            var container = await GetBlobContainerClient();
+            var container = _blobServiceClient.GetBlobContainerClient(containerName); ;
             var blob = container.GetBlobClient(imageName);
             await blob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots);
         }

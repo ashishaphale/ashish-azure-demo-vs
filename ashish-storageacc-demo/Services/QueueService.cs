@@ -8,27 +8,29 @@ namespace ashish_storageacc_demo.Services
     public class QueueService: IQueueService
     {
         private readonly IConfiguration _configuration;
-        private string queueName = "attendee-emails";
+        private readonly QueueClient _queueClient;
+        //private string queueName = "attendee-emails";
 
-        public QueueService(IConfiguration configuration)
+        public QueueService(IConfiguration configuration, QueueClient queueClient)
         {
             this._configuration = configuration;
+            _queueClient = queueClient; 
         }
 
         public async Task SendMessage(EmailMessage emailMessage)
         {
-            var queueClient = new QueueClient(_configuration["StorageConnectionString"],
-                queueName,
-                new QueueClientOptions
-                {
-                    MessageEncoding = QueueMessageEncoding.Base64
-                });
+            //var queueClient = new QueueClient(_configuration["StorageConnectionString"],
+            //    queueName,
+            //    new QueueClientOptions
+            //    {
+            //        MessageEncoding = QueueMessageEncoding.Base64
+            //    });
 
-            await queueClient.CreateIfNotExistsAsync();
+            await _queueClient.CreateIfNotExistsAsync();
 
             var message = JsonConvert.SerializeObject(emailMessage);
 
-            await queueClient.SendMessageAsync(message);
+            await _queueClient.SendMessageAsync(message);
         }
     }
 }
